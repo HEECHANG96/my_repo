@@ -1,7 +1,7 @@
-import axios, { Method } from "axios";
+import axios, { Method } from 'axios';
 
-export let axiosClient = axios.create({
-  baseURL: "http://localhost:4000",
+export const axiosClient = axios.create({
+  baseURL: 'http://localhost:4000',
 });
 
 axiosClient.defaults.withCredentials = true;
@@ -28,21 +28,21 @@ class API {
       if (error.response && error.response.status === 401) {
       }
 
-      console.error("# client-error-axios: ", error);
+      console.error('# client-error-axios: ', error);
       return error.response;
     }
   }
 
   GET(url: string) {
     return this.CALL({
-      method: "GET",
+      method: 'GET',
       url,
     });
   }
 
   POST({ url, ...params }: { url: string; [key: string]: any }) {
     return this.CALL({
-      method: "POST",
+      method: 'POST',
       url,
       ...params,
     });
@@ -50,7 +50,7 @@ class API {
 
   PUT({ url, ...params }: { url: string; [key: string]: any }) {
     return this.CALL({
-      method: "PUT",
+      method: 'PUT',
       url,
       ...params,
     });
@@ -58,7 +58,7 @@ class API {
 
   DELETE({ url, ...params }: { url: string; [key: string]: any }) {
     return this.CALL({
-      method: "DELETE",
+      method: 'DELETE',
       url,
       ...params,
     });
@@ -66,7 +66,7 @@ class API {
 
   PATCH({ url, ...params }: { url: string; [key: string]: any }) {
     return this.CALL({
-      method: "PATCH",
+      method: 'PATCH',
       url,
       ...params,
     });
