@@ -1,6 +1,6 @@
-import "./App.css";
-import { Route, Routes } from "react-router-dom";
-import MainPage from "./pages/MainPage";
+import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import MainPage from './pages/MainPage';
 
 function App() {
   return (

@@ -1,6 +1,6 @@
-import create from "zustand";
-import { devtools } from "zustand/middleware";
-import { isTestEnvironment } from "../../utils/isTestEnvironment";
+import create from 'zustand';
+import { devtools } from 'zustand/middleware';
+import { isTestEnvironment } from '../../utils/isTestEnvironment';
 
 interface TStoreCount {
   count: number;
