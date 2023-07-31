@@ -17,8 +17,8 @@ const Header = () => {
       <SearchDiv>
         <SearchInput
           placeholder="가고 싶은 지역을 검색해보세요"
-          prefix={<BsSearch />}
-        ></SearchInput>
+          prefix={<BsSearchIcon />}
+        />
 
         <PersonCircle />
       </SearchDiv>
@@ -78,6 +78,12 @@ const SearchInput = styled(Input)`
   border: none;
   border-bottom: 1px solid gray;
   margin-right: 2rem;
+`;
+
+const BsSearchIcon = styled(BsSearch)`
+  font-size: 16px;
+  margin-right: 8px;
+  cursor: pointer;
 `;
 
 const PersonCircle = styled(BsPersonCircle)`
