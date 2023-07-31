@@ -1,5 +1,11 @@
+import Swiper from '../feature/Main/Swiper';
+
 const MainPage = () => {
-  return <div>메인 페이지</div>;
+  return (
+    <div>
+      <Swiper />
+    </div>
+  );
 };
 
 export default MainPage;
