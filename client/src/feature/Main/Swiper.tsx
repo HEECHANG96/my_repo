@@ -1,6 +1,11 @@
 import styled from 'styled-components';
+import { DetailCommon } from '../../services/api';
+import { useQuery } from '@tanstack/react-query';
 
 const Image = () => {
+  const { data } = useQuery(['detailCommon'], DetailCommon);
+  console.log('data: ', data);
+
   return (
     <SContainer>
       <InnerBackground />

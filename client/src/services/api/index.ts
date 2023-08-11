@@ -1,76 +1,14 @@
-import axios, { Method } from 'axios';
+import axios from 'axios';
 
-export const axiosClient = axios.create({
-  baseURL: 'http://localhost:4000',
-});
+const BASE_URL = 'http://apis.data.go.kr/B551011/KorService1/';
 
-axiosClient.defaults.withCredentials = true;
-
-class API {
-  async CALL({
-    method,
-    url,
-    data = null,
-  }: {
-    method: Method;
-    url: string;
-    data?: any;
-  }) {
-    try {
-      const response = await axiosClient({
-        url,
-        method,
-        data,
-      });
-
-      return response;
-    } catch (error: any) {
-      if (error.response && error.response.status === 401) {
-      }
-
-      console.error('# client-error-axios: ', error);
-      return error.response;
-    }
+export const DetailCommon = async (): Promise<any> => {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}detailCommon1?MobileOS=IOS&MobileApp=MobileApp&contentId=1&contentTypeId=12&defaultYN=Y&firstImageYN=Y&areacodeYN=Y&catcodeYN=Y&addrinfoYN=Y&mapinfoYN=Y&overviewYN=Y&numOfRows=5&pageNo=1&serviceKey=d43ufcyxActi3JqQD7ChAF1fQRpNtUKnMMva9eqph76M4H2%2BW6jwDkqSu21J8jKElh1ouSzsvcxW2dgbzeVTRA%3D%3D`
+    );
+    return response;
+  } catch (error: any) {
+    throw error;
   }
-
-  GET(url: string) {
-    return this.CALL({
-      method: 'GET',
-      url,
-    });
-  }
-
-  POST({ url, ...params }: { url: string; [key: string]: any }) {
-    return this.CALL({
-      method: 'POST',
-      url,
-      ...params,
-    });
-  }
-
-  PUT({ url, ...params }: { url: string; [key: string]: any }) {
-    return this.CALL({
-      method: 'PUT',
-      url,
-      ...params,
-    });
-  }
-
-  DELETE({ url, ...params }: { url: string; [key: string]: any }) {
-    return this.CALL({
-      method: 'DELETE',
-      url,
-      ...params,
-    });
-  }
-
-  PATCH({ url, ...params }: { url: string; [key: string]: any }) {
-    return this.CALL({
-      method: 'PATCH',
-      url,
-      ...params,
-    });
-  }
-}
-
-export default new API();
+};
